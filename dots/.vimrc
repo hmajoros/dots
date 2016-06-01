@@ -11,6 +11,9 @@ Plugin 'cakebaker/scss-syntax.vim'          " scss syntax highlighting
 Plugin 'tpope/vim-fugitive'                 " needed for vim-airline (?)
 Plugin 'bling/vim-airline'                  " cool vim status bar at bottom
 Plugin 'mustache/vim-mustache-handlebars'   " syntax highlighting for mustache / handlebars
+Plugin 'altercation/vim-colors-solarized'   " solarized colorscheme ?
+Plugin 'vim-airline/vim-airline-themes'     " adding colors for airline
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -5,6 +5,7 @@ if hash zsh 2>/dev/null; then
   echo "zsh already installed!"
 else 
   # install zsh
+  # TODO: brew only on os x, need apt-get for linux shit
   brew install zsh
 
   # set zsh as primary shell
@@ -28,13 +29,26 @@ fi
 
 # here comes dat vimrc
 # (o shit waddup)
-if [ -e $HOME/.vimrc ]; then
-  echo "vimrc already exists!"
-else
-  file='.vimrc'
-  dest=$HOME/$file
-  ln -s $(pwd)/$file $dest
+if [ ! -d dots ]; then
+	echo "Can't find the dots directory!"
+	exit 1
 fi
+
+# TODO: this is still super fucked,
+# need to test out on fresh machines
+for path in $(pwd)/dots/.*; do
+	# echo $path
+  # file = ${path##*/}
+  file = $(basename $path)
+  echo $file
+  # dest=$HOME/$file
+	# if [ -e $dest ]; then
+	# 	echo "$dest already exists!" >> ~/dotfilestmp
+	# else
+	# 	echo "Symlinking $file!"
+	# 	ln -s $(pwd)/$file $dest
+	# fi
+done
 
 #-------------------------------------#
 #       just tmux my shit up 
