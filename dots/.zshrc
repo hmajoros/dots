@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/henrymajoros/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster-hank"
 
@@ -84,8 +84,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # HENRY'S SHIT STARTS HERE:
 
-if [ -f $HOME/repos/dotfiles/aliases.sh ]; then
-    source $HOME/repos/dotfiles/aliases.sh
+if [ -f $HOME/repos/dots/aliases.sh ]; then
+    source $HOME/repos/dots/aliases.sh
 else
     >&2 echo $fg[red] "Failed to load aliases.sh file"
 fi

@@ -3,7 +3,6 @@
 #-------------------------------------#
 if hash zsh 2>/dev/null; then
   echo "zsh already installed!"
-  continue
 else 
   # install zsh
   brew install zsh
