@@ -1,4 +1,10 @@
 #-------------------------------------#
+#     include extra functions 
+#-------------------------------------#
+# source $HOME/repos/dots/functions.sh
+source $(pwd)/functions.sh
+
+#-------------------------------------#
 #   install + change shell to zsh
 #-------------------------------------#
 if hash zsh 2>/dev/null; then
@@ -13,6 +19,9 @@ else
 
   # install oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+  # symlink .zshrc
+  symlink .zshrc
 
   # install custom theme
   cp agnoster-hank.zsh-theme ~/.oh-my-zsh/themes/
@@ -29,26 +38,18 @@ fi
 
 # here comes dat vimrc
 # (o shit waddup)
-if [ ! -d dots ]; then
-	echo "Can't find the dots directory!"
-	exit 1
-fi
+symlink .vimrc
 
-# TODO: this is still super fucked,
-# need to test out on fresh machines
-for path in $(pwd)/dots/.*; do
-	# echo $path
-  # file = ${path##*/}
-  file = $(basename $path)
-  echo $file
-  # dest=$HOME/$file
-	# if [ -e $dest ]; then
-	# 	echo "$dest already exists!" >> ~/dotfilestmp
-	# else
-	# 	echo "Symlinking $file!"
-	# 	ln -s $(pwd)/$file $dest
-	# fi
-done
+# if [ ! -e .vimrc ]; then
+# 	echo "Can't find the .vimrc!"
+# 	exit 1
+# else
+#   echo "Symlinking .vimrc!"
+#   ln -s $(pwd)/.vimrc $HOME/.vimrc
+# fi
+
+# run BundleInstall from command line
+vim +PluginInstall +qall
 
 #-------------------------------------#
 #       just tmux my shit up 
