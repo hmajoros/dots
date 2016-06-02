@@ -53,6 +53,15 @@ symlink .vimrc
 # run BundleInstall from command line
 vim +PluginInstall +qall
 
+
+#-------------------------------------#
+#           git 'er done 
+#-------------------------------------#
+
+# get them aliases + defaults
+# TODO: maybe don't want default email + name prefs?
+symlink .gitconfig
+
 #-------------------------------------#
 #       just tmux my shit up 
 #-------------------------------------#
