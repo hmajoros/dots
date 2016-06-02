@@ -15,19 +15,19 @@ else
   # install zsh
   # TODO: brew only on os x, need apt-get for linux shit
   brew install zsh
-
-  # set zsh as primary shell
-  chsh -s $(which zsh)
-
-  # install oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-  # symlink .zshrc
-  symlink '.zshrc'
-
-  # install custom theme
-  cp agnoster-hank.zsh-theme ~/.oh-my-zsh/themes/
 fi
+
+# set zsh as primary shell
+chsh -s $(which zsh)
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# symlink .zshrc
+symlink .zshrc
+
+# install custom theme
+cp agnoster-hank.zsh-theme ~/.oh-my-zsh/themes/
 
 #-------------------------------------#
 #      install + setup vim shit 
