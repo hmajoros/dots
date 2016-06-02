@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #-------------------------------------#
 #     include extra functions 
 #-------------------------------------#
@@ -21,7 +23,7 @@ else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
   # symlink .zshrc
-  symlink .zshrc
+  symlink '.zshrc'
 
   # install custom theme
   cp agnoster-hank.zsh-theme ~/.oh-my-zsh/themes/
