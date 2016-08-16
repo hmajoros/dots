@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'                " nerdtree file explorer in vim
 Plugin 'cakebaker/scss-syntax.vim'          " scss syntax highlighting
 Plugin 'tpope/vim-fugitive'                 " needed for vim-airline (?)
 Plugin 'bling/vim-airline'                  " cool vim status bar at bottom
@@ -25,7 +26,7 @@ let g:airline_powerline_fonts=1
 
 " Color scheme stuff
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 set t_Co=256
 
@@ -39,6 +40,9 @@ set expandtab
 set softtabstop=2
 set smartindent
 
+" remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " VIM HARD MODE
 " disable arrow keys
 inoremap  <Up>     <NOP>
@@ -51,13 +55,13 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 " compile sass on write
-function SassToCss()
-  let current_file = shellescape(expand('%:p'))
-  let filename = shellescape(expand('%:r'))
-  let command = 'silent !sass ' . current_file . ' ' . filename . '.css'
-  execute command
-endfunction
-autocmd BufWritePost,FileWritePost *.scss call SassToCss()
+" function SassToCss()
+"   let current_file = shellescape(expand('%:p'))
+"   let filename = shellescape(expand('%:r'))
+"   let command = 'silent !sass ' . current_file . ' ' . filename . '.css'
+"   execute command
+" endfunction
+" autocmd BufWritePost,FileWritePost *.scss call SassToCss()
 
 " proper fonts in macvim
 set guifont=Meslo\ LG\ S\ for\ Powerline
